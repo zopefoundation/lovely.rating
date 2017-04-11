@@ -278,14 +278,14 @@ We also get events if a rating is removed.
 Finally, the manager also provides some basic statistical features:
 
   >>> manager.computeAverage('usability')
-  Decimal("3")
+  Decimal('3')
 
   >>> manager.countScores('usability')
-  [((u'Awesome', Decimal("4")), 1),
-   ((u'Good', Decimal("3")), 0),
-   ((u'Okay', Decimal("2")), 1),
-   ((u'Poor', Decimal("1")), 0),
-   ((u'Crap', Decimal("0")), 0)]
+  [((u'Awesome', Decimal('4')), 1),
+   ((u'Good', Decimal('3')), 0),
+   ((u'Okay', Decimal('2')), 1),
+   ((u'Poor', Decimal('1')), 0),
+   ((u'Crap', Decimal('0')), 0)]
 
 The computeAverage, countScores and countAmountRatings methods also
 support the dtMin and dtMax arguments as described in the getRatings

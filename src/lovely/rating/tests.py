@@ -20,7 +20,6 @@ __docformat__ = "reStructuredText"
 import doctest
 import unittest
 
-from zope.testing.doctestunit import DocFileSuite
 from zope.component import eventtesting
 
 from zope.app.testing import setup
@@ -31,22 +30,24 @@ def setUp(test):
     test.globs['root'] = root
     eventtesting.setUp()
 
+
 def tearDown(test):
     setup.placefulTearDown()
 
 
 def test_suite():
     return unittest.TestSuite((
-        DocFileSuite('README.txt',
-                     setUp=setUp,
-                     tearDown=tearDown,
-                     optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS,
-                     ),
-        DocFileSuite('generations/helper.txt',
-                     setUp=setUp,
-                     tearDown=tearDown,
-                     optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS,
-                     ),
+        doctest.DocFileSuite(
+            'README.txt',
+            setUp=setUp,
+            tearDown=tearDown,
+            optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS,
+        ),
+        doctest.DocFileSuite('generations/helper.txt',
+            setUp=setUp,
+            tearDown=tearDown,
+            optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS,
+            ),
         ))
 
 if __name__ == '__main__':
